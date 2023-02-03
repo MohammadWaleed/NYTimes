@@ -1,18 +1,26 @@
 import * as React from "react";
-import { SafeAreaView, StatusBar, Text } from "react-native";
+import { useContext } from "react";
+import { SafeAreaView } from "react-native";
+import { SplashScreen } from "../screens/splash";
+import { GlobalContext } from "../store/global";
+import { PublicNavigation } from "./public";
+import { PrivateNavigation } from "./private";
 
 
-const Main = () => {
+export const Main = () => {
 
+  const { state } = useContext(GlobalContext);
 
   return (
-    <SafeAreaView>
-      <StatusBar />
-      <Text>Main Route</Text>
+    <SafeAreaView style={{ flex: 1 }}>
+      {state.appInitiating ? <SplashScreen /> : null}
+      {!state.appInitiating && !state.userInfo ?
+        <PublicNavigation />
+        : null}
+      {!state.appInitiating && state.userInfo ?
+        <PrivateNavigation />
+        : null}
     </SafeAreaView>
   );
 
 };
-
-
-export default Main;

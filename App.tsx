@@ -6,14 +6,20 @@
  */
 
 import React from "react";
-import Main from "./src/routes";
+import { Main } from "./src/routes";
+import GlobalState from "./src/store/global";
+import { OnStart } from "./src/OnStart";
 
 
 function App(): JSX.Element {
 
 
   return (
-    <Main />
+    <GlobalState>
+      <OnStart>
+        <Main />
+      </OnStart>
+    </GlobalState>
   );
 }
 
