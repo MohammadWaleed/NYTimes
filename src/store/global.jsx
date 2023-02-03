@@ -1,20 +1,19 @@
 import * as React from "react";
-import { createContext, ReactNode, useState } from "react";
+import { createContext, useState } from "react";
 
 
 export const GlobalContext = createContext(null);
 
 const GlobalState = ({ children }) => {
 
-  const defaultState = {
-    appInitiating: true,
-  };
-
-  const [state, setState] = useState(defaultState);
+  const [appInitiating, setAppInitiating] = useState(true);
+  const [userInfo, setUserInfo] = useState(null);
 
   const context = {
-    state: state,
-    setState: setState
+    appInitiating: appInitiating,
+    setAppInitiating: setAppInitiating,
+    userInfo: userInfo,
+    setUserInfo: setUserInfo
   };
 
   return (

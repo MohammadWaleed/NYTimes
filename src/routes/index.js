@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { SafeAreaView } from "react-native";
 import { SplashScreen } from "../screens/splash";
 import { GlobalContext } from "../store/global";
@@ -9,15 +9,16 @@ import { PrivateNavigation } from "./private";
 
 export const Main = () => {
 
-  const { state } = useContext(GlobalContext);
+  const { appInitiating, userInfo } = useContext(GlobalContext);
+
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      {state.appInitiating ? <SplashScreen /> : null}
-      {!state.appInitiating && !state.userInfo ?
+      {appInitiating ? <SplashScreen /> : null}
+      {!appInitiating && !userInfo ?
         <PublicNavigation />
         : null}
-      {!state.appInitiating && state.userInfo ?
+      {!appInitiating && userInfo ?
         <PrivateNavigation />
         : null}
     </SafeAreaView>

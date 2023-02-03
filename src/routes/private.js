@@ -4,11 +4,13 @@ import { View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { DashboardScreen } from "../screens/dashboard";
 import { MoreScreen } from "../screens/more";
+import { useTranslation } from "react-i18next";
 
 export const PrivateNavigation = (props) => {
 
-
   const TabNavigation = createBottomTabNavigator();
+
+  const { t } = useTranslation();
 
   return (
     <View style={{ flex: 1 }}>
@@ -17,11 +19,13 @@ export const PrivateNavigation = (props) => {
           headerMode={"none"}
           initialRouteName={props.initialRouteName}>
           <TabNavigation.Screen
-            name={"DashboardScreen"}
+            navigationKey={"DashboardScreen"}
+            name={t("dashboardScreen")}
             component={DashboardScreen}
           />
           <TabNavigation.Screen
-            name={"MoreScreen"}
+            navigationKey={"MoreScreen"}
+            name={t("moreScreen")}
             component={MoreScreen}
           />
         </TabNavigation.Navigator>
