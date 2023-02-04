@@ -8,6 +8,12 @@ export const en = {
     ar:"Arabic",
     en:"English",
     logout:"Logout",
+    title: "Title",
+    publishDate:"Published at",
+    oneDay:"1 Day",
+    sevenDays:"7 Days",
+    thirtyDays:"30 Days",
+    search:"Search",
 
     form:{
         id:"ID",
