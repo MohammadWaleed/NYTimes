@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { DashboardScreen } from "../screens/dashboard";
 import { MoreScreen } from "../screens/more";
 import { useTranslation } from "react-i18next";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
 export const PrivateNavigation = (props) => {
 
@@ -22,11 +23,21 @@ export const PrivateNavigation = (props) => {
             navigationKey={"DashboardScreen"}
             name={t("dashboardScreen")}
             component={DashboardScreen}
+            options={{
+              tabBarIcon:({ color, size }) => (
+                <MaterialCommunityIcons name="post-outline" color={color} size={size} />
+              )
+            }}
           />
           <TabNavigation.Screen
             navigationKey={"MoreScreen"}
             name={t("moreScreen")}
             component={MoreScreen}
+            options={{
+              tabBarIcon:({ color, size }) => (
+                <MaterialCommunityIcons name="menu" color={color} size={size} />
+              )
+            }}
           />
         </TabNavigation.Navigator>
       </NavigationContainer>

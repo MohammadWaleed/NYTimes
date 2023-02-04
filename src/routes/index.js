@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { SafeAreaView } from "react-native";
 import { SplashScreen } from "../screens/splash";
 import { GlobalContext } from "../store/global";
