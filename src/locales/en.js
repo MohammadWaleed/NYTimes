@@ -4,6 +4,10 @@ export const en = {
     dashboardScreen:"Dashboard",
     moreScreen:"More",
     ok:"Ok",
+    selectLanguage:"Select Language",
+    ar:"Arabic",
+    en:"English",
+    logout:"Logout",
 
     form:{
         id:"ID",
@@ -21,6 +25,8 @@ export const en = {
         success:"Success",
         registrationSuccess:"You've successfully registered",
         error:"Error",
-        registrationError:"Something wrong happened, please try again"
+        registrationError:"Something wrong happened, please try again",
+        logoutSuccess:"You've been successfully logged out"
+
     }
 };

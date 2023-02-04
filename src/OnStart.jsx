@@ -5,15 +5,19 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import { ar } from "./locales/ar";
 import { en } from "./locales/en";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useDataStorage } from "./hooks/useDataStorage";
 
 
 export const OnStart = ({ children }) => {
 
   const { setAppInitiating, setUserInfo } = useContext(GlobalContext);
 
+  const { getUserInfo, getLanguage } = useDataStorage();
 
   const initLanguage = async () => {
+
+    const language = await getLanguage();
+
     await i18n
       .use(initReactI18next)
       .init({
@@ -22,7 +26,7 @@ export const OnStart = ({ children }) => {
           en: { translation: en },
           ar: { translation: ar },
         },
-        lng: "en",
+        lng: language,
         fallbackLng: "en",
         debug: false,
         interpolation: {
@@ -32,17 +36,15 @@ export const OnStart = ({ children }) => {
   };
 
   const getData = async () => {
-    try {
-      const values = await AsyncStorage.getItem("userInfo");
-      const parsed = JSON.parse(values);
-      if (parsed !== null) {
-        setUserInfo({
-          ...parsed,
-        });
-      }
-    } catch (e) {
-      // Fail Silently
+
+    const userInfo = await getUserInfo();
+
+    if (userInfo !== null) {
+      setUserInfo({
+        ...userInfo,
+      });
     }
+
   };
 
 

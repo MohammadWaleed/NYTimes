@@ -14,26 +14,32 @@ export const DateField = ({ name, value, label, maximumDate, ...props }) => {
   const { t, i18n } = useTranslation();
   const [open, setOpen] = useState(false);
 
+  const onConfirm = date => {
+    setFieldValue(name, date);
+    setOpen(false);
+  };
+
+  const onCancel = () => {
+    setOpen(false);
+  };
+
+  const onPress = () => {
+    setOpen(true);
+  };
+
   return (
     <View style={style.container(errors[name] && touched[name])}>
 
       <View style={style.datePickerLabelContainer}>
         <Text>{label}: {values[name] ? moment(values[name]).format("Y/M/D") : t("form.selectDate")}</Text>
-        <Button title={t("form.openDateModal")} onPress={() => {
-          setOpen(true);
-        }} />
+        <Button title={t("form.openDateModal")} onPress={onPress} />
       </View>
       <DateTimePickerModal
         maximumDate={maximumDate}
         isVisible={open}
         mode="date"
-        onConfirm={date => {
-          setFieldValue(name, date);
-          setOpen(false);
-        }}
-        onCancel={() => {
-          setOpen(false);
-        }}
+        onConfirm={onConfirm}
+        onCancel={onCancel}
         locale={i18n.language}
         {...props}
       />

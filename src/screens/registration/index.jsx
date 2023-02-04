@@ -5,21 +5,21 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import "yup-phone";
 import { useTranslation } from "react-i18next";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { TextField } from "../../components/form/TextField";
 import { DateField } from "../../components/form/DateField";
 import { GlobalContext } from "../../store/global";
+import { useDataStorage } from "../../hooks/useDataStorage";
 
 export const RegistrationScreen = () => {
 
   const { t } = useTranslation();
   const { setUserInfo } = useContext(GlobalContext);
+  const { saveUserInfo } = useDataStorage();
 
   const storeData = async (values) => {
     try {
 
-      const jsonValue = JSON.stringify(values);
-      await AsyncStorage.setItem("userInfo", jsonValue);
+      await saveUserInfo(values);
 
       setUserInfo({
         ...values,
@@ -50,9 +50,7 @@ export const RegistrationScreen = () => {
       <Formik
         initialValues={{ email: "", phoneNumber: "", id: "", dateOfBirth: null }}
         validationSchema={registrationSchema}
-        onSubmit={values => {
-          storeData(values);
-        }}
+        onSubmit={storeData}
       >
         {({ handleSubmit }) => (
           <View>

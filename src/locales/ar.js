@@ -4,6 +4,10 @@ export const ar = {
   dashboardScreen: "لوحة القيادة",
   moreScreen: "المزيد",
   ok: "حسنا",
+  selectLanguage:"اختار اللغة",
+  ar:"عربي",
+  en:"إنجليزي",
+  logout:"تسجيل خروج",
 
   form: {
     id: "رقم الهوية",
@@ -22,5 +26,6 @@ export const ar = {
     registrationSuccess: "لقد قمت بالتسجيل بنجاح",
     error: "خطأ",
     registrationError: "حدث خطأ ما , يرجى المحاولة مرة أخرى",
+    logoutSuccess:"لقد تم تسجيل خروجك بنجاح"
   },
 };
