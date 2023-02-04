@@ -6,7 +6,9 @@ import { initReactI18next } from "react-i18next";
 import { ar } from "./locales/ar";
 import { en } from "./locales/en";
 import { useDataStorage } from "./hooks/useDataStorage";
-
+import moment from "moment";
+import "moment/min/locales";
+import { I18nManager } from "react-native";
 
 export const OnStart = ({ children }) => {
 
@@ -17,6 +19,8 @@ export const OnStart = ({ children }) => {
   const initLanguage = async () => {
 
     const language = await getLanguage();
+
+    moment.locale(language);
 
     await i18n
       .use(initReactI18next)
@@ -33,6 +37,12 @@ export const OnStart = ({ children }) => {
           escapeValue: false,
         },
       });
+
+    if(language == 'ar'){
+      I18nManager.forceRTL(false);
+    }else{
+      I18nManager.forceRTL(true);
+    }
   };
 
   const getData = async () => {
