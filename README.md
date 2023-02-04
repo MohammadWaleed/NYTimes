@@ -19,4 +19,9 @@ The app is a client for NewYork Times news and shows the most viewed articles, a
 * MomentJs
 * I18next
 
+## Screenshots
+![](https://appwrite.mbarghash.com/v1/storage/buckets/63de715065820f1c2aae/files/63de71957638ccc0bfb3/view?project=63b9ba699efc63a2c21b)
+![](https://appwrite.mbarghash.com/v1/storage/buckets/63de715065820f1c2aae/files/63de719c72ea7bc1637e/view?project=63b9ba699efc63a2c21b)
+![](https://appwrite.mbarghash.com/v1/storage/buckets/63de715065820f1c2aae/files/63de71a1c156f5cbd7c3/view?project=63b9ba699efc63a2c21b)
+
 

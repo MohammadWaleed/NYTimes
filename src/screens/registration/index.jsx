@@ -41,7 +41,7 @@ export const RegistrationScreen = () => {
     id: Yup.string().required(t("form.required")),
     email: Yup.string().email(t("form.emailFormat")).required(t("form.required")),
     phoneNumber: Yup.string().phone("JO", null, t("form.phoneFormat")),
-    dateOfBirth: Yup.date().required(t("form.required")),
+    dateOfBirth: Yup.date().required(t("form.required")).typeError(t("form.required")),
   });
 
   return (
