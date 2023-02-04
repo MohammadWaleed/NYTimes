@@ -7,6 +7,7 @@ import moment from "moment";
 import _ from "lodash";
 import { HorizontalLine } from "../../components/HorizontalLine";
 import { style } from "./style";
+import { useNavigation } from "@react-navigation/native";
 
 export const DashboardScreen = () => {
 
@@ -18,6 +19,7 @@ export const DashboardScreen = () => {
 
   const { t } = useTranslation();
   const { data, loading, fetchData } = useMostPopular(section, timePeriod);
+  const { navigate } = useNavigation();
 
 
   const mapData = (postsData) => {
@@ -40,17 +42,19 @@ export const DashboardScreen = () => {
   const listKeyExtractor = (item) => item.title;
 
   const listRenderItem = ({ item }) => (
-    <View style={style.itemContainer}>
+    <TouchableOpacity onPress={()=>{navigate(t('detailsScreen'),{
+      item:{...item}
+    })}} style={style.itemContainer}>
       <Image style={style.postImage}
              source={item.media[0] ? { uri: item.media[0]["media-metadata"][1]?.url } : null} />
       <View style={style.postInfo}>
         <Text>{t("title")}: {item.title}</Text>
         <Text>{t("publishDate")}: {moment(item.updated).format("Y/M/D")}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 
-  const  listRenderSection = ({ section }) => {
+  const listRenderSection = ({ section }) => {
     return (
       <View style={style.sectionHeaderContainer}>
         <Text style={style.sectionText}>{moment(section.title).fromNow()}</Text>

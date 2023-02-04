@@ -1,7 +1,7 @@
 export const ar = {
 
   registrationScreen: "التسجيل",
-  dashboardScreen: "لوحة القيادة",
+  dashboardScreen: "الاخبار",
   moreScreen: "المزيد",
   ok: "حسنا",
   selectLanguage: "اختار اللغة",
@@ -9,11 +9,16 @@ export const ar = {
   en: "إنجليزي",
   logout: "تسجيل خروج",
   title: "العنوان",
-  publishDate:"تاريخ النشر",
-  oneDay:"يوم واحد",
-  sevenDays:"سبعة ايام",
-  thirtyDays:"ثلاثون يوم",
-  search:"بحث",
+  publishDate: "تاريخ النشر",
+  oneDay: "يوم واحد",
+  sevenDays: "سبعة ايام",
+  thirtyDays: "ثلاثون يوم",
+  search: "بحث",
+  detailsScreen: "التفاصيل",
+  abstract: "خلاصة",
+  by: "كتبه",
+  section: "القسم",
+  tags: "العلامات",
 
   form: {
     id: "رقم الهوية",

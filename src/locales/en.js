@@ -1,7 +1,7 @@
 export const en = {
 
     registrationScreen:"Registration",
-    dashboardScreen:"Dashboard",
+    dashboardScreen:"News",
     moreScreen:"More",
     ok:"Ok",
     selectLanguage:"Select Language",
@@ -14,6 +14,11 @@ export const en = {
     sevenDays:"7 Days",
     thirtyDays:"30 Days",
     search:"Search",
+    detailsScreen:"Details",
+    abstract: "Abstract",
+    by: "By",
+    section: "Section",
+    tags: "Tags",
 
     form:{
         id:"ID",

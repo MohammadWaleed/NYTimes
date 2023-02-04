@@ -49,7 +49,7 @@ export const OnStart = ({ children }) => {
 
     const userInfo = await getUserInfo();
 
-    if (userInfo !== null) {
+    if (userInfo) {
       setUserInfo({
         ...userInfo,
       });
